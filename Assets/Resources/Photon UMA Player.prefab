@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 2095929411915610903}
   - component: {fileID: 2095929411915610908}
   - component: {fileID: 4821869471987991230}
-  - component: {fileID: 5942651993155062543}
+  - component: {fileID: 7902121923169639400}
   m_Layer: 0
   m_Name: DynamicAvatar1
   m_TagString: Untagged
@@ -507,7 +507,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2095929412883686355}
-  - {fileID: 4628978063047313982}
+  - {fileID: 5582914637536950292}
   m_Father: {fileID: 5513755676447207301}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  umaData: {fileID: 5942651993155062543}
+  umaData: {fileID: 7902121923169639400}
   defaultRendererAsset: {fileID: 0}
   umaRecipe: {fileID: 11400000, guid: 64c6614d653bc0e4d8b0ec1524b409b6, type: 2}
   umaAdditionalRecipes:
@@ -579,7 +579,7 @@ MonoBehaviour:
       m_Calls: []
   hide: 0
   loadBlendShapes: 1
-  keepAvatar: 1
+  keepAvatar: 0
   activeRace:
     name: DNAConverterControllerExampleRace
   defaultChangeRaceOptions: 12
@@ -909,7 +909,7 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 2
     LayerIndex: 2
---- !u!114 &5942651993155062543
+--- !u!114 &7902121923169639400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderers:
-  - {fileID: 6789623397090864946}
+  - {fileID: 3804934592931478057}
   umaGenerator: {fileID: 0}
   atlasResolutionScale: 1
   isMeshDirty: 0
@@ -5995,7 +5995,7 @@ MonoBehaviour:
       type: {class: GetBoolValue, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 0
---- !u!1 &3162262354222629839
+--- !u!1 &6031633959144362163
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6003,8 +6003,108 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4628978063047313982}
-  - component: {fileID: 6789623397090864946}
+  - component: {fileID: 6763919471040824585}
+  - component: {fileID: 23989526410292443}
+  m_Layer: 0
+  m_Name: Set As Controllable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6763919471040824585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031633959144362163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 392068397098082443}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &23989526410292443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031633959144362163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Instructions:
+    m_Instructions:
+    - rid: 5847536597373812771
+    - rid: 5847536597373812764
+  m_TriggerEvent:
+    rid: 5847536597373812760
+  references:
+    version: 2
+    RefIds:
+    - rid: 5847536597373812760
+      type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+    - rid: 5847536597373812764
+      type: {class: InstructionGameObjectInstantiate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_GameObject:
+          m_Property:
+            rid: 5847536597373812765
+          usePooling: 0
+          size: 5
+          hasDuration: 0
+          duration: 10
+        m_Location:
+          m_Property:
+            rid: 5847536597373812770
+        m_Parent:
+          m_Property:
+            rid: 5847536597373812767
+        m_Save:
+          m_Property:
+            rid: 5847536597373812768
+    - rid: 5847536597373812765
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 7965061930176493005, guid: 1dd888abe7d7a72459b33826016b086b, type: 3}
+    - rid: 5847536597373812767
+      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 5847536597373812768
+      type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 5847536597373812770
+      type: {class: GetLocationNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+    - rid: 5847536597373812771
+      type: {class: InstructionCharacterChangePlayer, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
+      data:
+        m_IsExpanded: 1
+        m_Breakpoint: 0
+        m_IsEnabled: 1
+        m_NewPlayer:
+          m_Property:
+            rid: 5847536597373812774
+    - rid: 5847536597373812774
+      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
+      data:
+        m_GameObject: {fileID: 639969652156454928}
+--- !u!1 &7632216039293569403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5582914637536950292}
+  - component: {fileID: 3804934592931478057}
   m_Layer: 0
   m_Name: UMARenderer
   m_TagString: Untagged
@@ -6012,13 +6112,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4628978063047313982
+--- !u!4 &5582914637536950292
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3162262354222629839}
+  m_GameObject: {fileID: 7632216039293569403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -6027,13 +6127,13 @@ Transform:
   m_Father: {fileID: 2095929411915610897}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &6789623397090864946
+--- !u!137 &3804934592931478057
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3162262354222629839}
+  m_GameObject: {fileID: 7632216039293569403}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -6184,106 +6284,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000029802322, y: 0.86475587, z: -0.026063621}
     m_Extent: {x: 0.91659784, y: 0.95228887, z: 0.21193376}
   m_DirtyAABB: 0
---- !u!1 &6031633959144362163
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6763919471040824585}
-  - component: {fileID: 23989526410292443}
-  m_Layer: 0
-  m_Name: Set As Controllable
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6763919471040824585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031633959144362163}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 392068397098082443}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23989526410292443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6031633959144362163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecd922218e245e2b85d51f9f08338c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Instructions:
-    m_Instructions:
-    - rid: 5847536597373812771
-    - rid: 5847536597373812764
-  m_TriggerEvent:
-    rid: 5847536597373812760
-  references:
-    version: 2
-    RefIds:
-    - rid: 5847536597373812760
-      type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812764
-      type: {class: InstructionGameObjectInstantiate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 1
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_GameObject:
-          m_Property:
-            rid: 5847536597373812765
-          usePooling: 0
-          size: 5
-          hasDuration: 0
-          duration: 10
-        m_Location:
-          m_Property:
-            rid: 5847536597373812770
-        m_Parent:
-          m_Property:
-            rid: 5847536597373812767
-        m_Save:
-          m_Property:
-            rid: 5847536597373812768
-    - rid: 5847536597373812765
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 7965061930176493005, guid: 1dd888abe7d7a72459b33826016b086b, type: 3}
-    - rid: 5847536597373812767
-      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812768
-      type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812770
-      type: {class: GetLocationNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812771
-      type: {class: InstructionCharacterChangePlayer, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 1
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_NewPlayer:
-          m_Property:
-            rid: 5847536597373812774
-    - rid: 5847536597373812774
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 639969652156454928}
 --- !u!1 &7945344013854598159
 GameObject:
   m_ObjectHideFlags: 0
