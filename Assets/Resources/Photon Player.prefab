@@ -3259,8 +3259,17 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: Twitch-Cycle
   - Type: 1
-    SynchronizeType: 2
-    Name: Time-Scale
+    SynchronizeType: 0
+    Name: Phase-0
+  - Type: 1
+    SynchronizeType: 0
+    Name: Phase-1
+  - Type: 1
+    SynchronizeType: 0
+    Name: Phase-2
+  - Type: 1
+    SynchronizeType: 0
+    Name: Phase-3
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
