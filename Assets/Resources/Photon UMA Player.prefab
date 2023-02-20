@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 8895541539253233906}
   - component: {fileID: 4011545642563550983}
   - component: {fileID: 6467526973629713827}
+  - component: {fileID: 5351043502747245735}
   m_Layer: 0
   m_Name: Photon UMA Player
   m_TagString: Untagged
@@ -789,6 +790,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &5351043502747245735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639969652156454928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd865a3334e0cd546bb8ab3e2b5b0b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Avatar: {fileID: 4688061122490892438}
 --- !u!1 &662229189608616566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,195 +1654,6 @@ Transform:
   m_Father: {fileID: 5963117074786977820}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2137526779225956629
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5607272563898375612}
-  - component: {fileID: 8987327746848759091}
-  m_Layer: 0
-  m_Name: UMARenderer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5607272563898375612
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137526779225956629}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7124833111436123160}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &8987327746848759091
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137526779225956629}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 0
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
-  m_Bones:
-  - {fileID: 8686431936522846207}
-  - {fileID: 4952322788924074881}
-  - {fileID: 6244706665009661011}
-  - {fileID: 378878074326257598}
-  - {fileID: 2495372702072191771}
-  - {fileID: 8932700227555627945}
-  - {fileID: 2668116791803719090}
-  - {fileID: 8552077486843697156}
-  - {fileID: 5021928452097239621}
-  - {fileID: 2717650931594250843}
-  - {fileID: 6394578777680070513}
-  - {fileID: 4153528178878920111}
-  - {fileID: 8478689413034113835}
-  - {fileID: 9219112498497182553}
-  - {fileID: 6401045866233863223}
-  - {fileID: 1981580263239675877}
-  - {fileID: 8158013714552485364}
-  - {fileID: 4603900098393310998}
-  - {fileID: 4451742364831291834}
-  - {fileID: 4448009208502234638}
-  - {fileID: 6423495861544030678}
-  - {fileID: 4176881059531349361}
-  - {fileID: 21519537405522782}
-  - {fileID: 5556333832252923822}
-  - {fileID: 3468652635549805119}
-  - {fileID: 7568488474741053927}
-  - {fileID: 343445864851194030}
-  - {fileID: 2540059430234367729}
-  - {fileID: 2721907578619198677}
-  - {fileID: 7885875157856921278}
-  - {fileID: 8522210182368175411}
-  - {fileID: 1298985482736906433}
-  - {fileID: 2719252230503984326}
-  - {fileID: 6165196748238320411}
-  - {fileID: 6100856157774000245}
-  - {fileID: 3037415545828388532}
-  - {fileID: 1276607358580833074}
-  - {fileID: 8815222558152385956}
-  - {fileID: 2475204950430771143}
-  - {fileID: 4104338603395735029}
-  - {fileID: 6402384691146687727}
-  - {fileID: 8433206099273223300}
-  - {fileID: 1565254089059003090}
-  - {fileID: 6759248986457698693}
-  - {fileID: 2563573215587782511}
-  - {fileID: 4933917898386032402}
-  - {fileID: 6839256924139052715}
-  - {fileID: 3417643732590750963}
-  - {fileID: 7615227441652251619}
-  - {fileID: 996687233654233790}
-  - {fileID: 7140887984080578748}
-  - {fileID: 6776320098712194740}
-  - {fileID: 8764802097789507007}
-  - {fileID: 3644179941031550608}
-  - {fileID: 4751812596095054273}
-  - {fileID: 8320399417962397305}
-  - {fileID: 8381039660703696535}
-  - {fileID: 6879860516485236561}
-  - {fileID: 2493718087697753314}
-  - {fileID: 5726426976238776399}
-  - {fileID: 2497923488769638929}
-  - {fileID: 8993613034863981157}
-  - {fileID: 3734059600033420198}
-  - {fileID: 1489082764994271412}
-  - {fileID: 8398770586982183149}
-  - {fileID: 633646398458531938}
-  - {fileID: 8437244796777939268}
-  - {fileID: 5803342793206772975}
-  - {fileID: 4797713200587809938}
-  - {fileID: 7498117250608680940}
-  - {fileID: 4373576473902126335}
-  - {fileID: 6280173510074931249}
-  - {fileID: 5056035714681645284}
-  - {fileID: 9116392100268066619}
-  - {fileID: 7345723071826941107}
-  - {fileID: 3031574274406698953}
-  - {fileID: 415187337130844483}
-  - {fileID: 1664703929180332052}
-  - {fileID: 8821499509687467014}
-  - {fileID: 4041524512458868381}
-  - {fileID: 7561275234973989340}
-  - {fileID: 2850477720041888930}
-  - {fileID: 5368600942566361945}
-  - {fileID: 7894767524470334033}
-  - {fileID: 5743671647884608107}
-  - {fileID: 2091580406114791084}
-  - {fileID: 6327623881248608464}
-  - {fileID: 3288465630273502454}
-  - {fileID: 1069865618720275184}
-  - {fileID: 5082994664671470769}
-  - {fileID: 2860368952907966324}
-  - {fileID: 7635234095140446351}
-  - {fileID: 165667908075073587}
-  - {fileID: 353248427737991540}
-  - {fileID: 2571034753672395862}
-  - {fileID: 4718491615810691888}
-  - {fileID: 2773901190720936904}
-  - {fileID: 8339720839952332387}
-  - {fileID: 7171090196160333449}
-  - {fileID: 2441495526207785977}
-  - {fileID: 6672107293228047324}
-  - {fileID: 5963117074786977820}
-  m_BlendShapeWeights:
-  - 0.3921628
-  - 0
-  m_RootBone: {fileID: 0}
-  m_AABB:
-    m_Center: {x: 0.00000029802322, y: 0.86475587, z: -0.026063621}
-    m_Extent: {x: 0.91659784, y: 0.95228887, z: 0.21193376}
-  m_DirtyAABB: 0
 --- !u!1 &2169923800234171189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4599,9 +4424,8 @@ GameObject:
   - component: {fileID: 4795593394451856669}
   - component: {fileID: 36527957033456205}
   - component: {fileID: 1660386185182399577}
-  - component: {fileID: 4293178454950550835}
   m_Layer: 0
-  m_Name: DynamicAvatar1 1
+  m_Name: DynamicAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4620,7 +4444,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 221772857181503404}
-  - {fileID: 5607272563898375612}
   m_Father: {fileID: 8307019180340375371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4637,7 +4460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  umaData: {fileID: 4293178454950550835}
+  umaData: {fileID: 0}
   defaultRendererAsset: {fileID: 0}
   umaRecipe: {fileID: 11400000, guid: 64c6614d653bc0e4d8b0ec1524b409b6, type: 2}
   umaAdditionalRecipes:
@@ -5022,224 +4845,6 @@ MonoBehaviour:
     LayerIndex: 1
   - SynchronizeType: 2
     LayerIndex: 2
---- !u!114 &4293178454950550835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6835206540044761271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15ee0e75ac30e964b8dcd0ad5f953c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderers:
-  - {fileID: 8987327746848759091}
-  umaGenerator: {fileID: 0}
-  atlasResolutionScale: 1
-  isMeshDirty: 0
-  isShapeDirty: 0
-  isTextureDirty: 0
-  isAtlasDirty: 0
-  animationController: {fileID: 9100000, guid: ecba992c2f1394f9eb808f518164f8ea, type: 2}
-  CharacterCreated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4795593394451856669}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  CharacterDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterBeforeUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterBeforeDnaUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterDnaUpdated:
-    m_PersistentCalls:
-      m_Calls: []
-  CharacterBegun:
-    m_PersistentCalls:
-      m_Calls: []
-  AnimatorStateSaved:
-    m_PersistentCalls:
-      m_Calls: []
-  AnimatorStateRestored:
-    m_PersistentCalls:
-      m_Calls: []
-  PreUpdateUMABody:
-    m_PersistentCalls:
-      m_Calls: []
-  umaRoot: {fileID: 581720642649103112}
-  _umaRecipe:
-    raceData: {fileID: 11400000, guid: 47ca517b770126341b0332ab373bc55d, type: 2}
-    dnaValues:
-    - dnaTypeHash: 1144010748
-    slotDataList:
-    - asset: {fileID: 11400000, guid: 0b7ed825e2431f54c9f786a489da80bc, type: 2}
-      overlayScale: 1
-      tags:
-      - Eyes
-      - Head
-      Races: []
-      altMaterial: {fileID: 11400000, guid: 8e29dbac5d2e82f44a759a7e2cc568ab, type: 2}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: cc6c17656f669be4bbb2e21d48e57a45, type: 2}
-      overlayScale: 1
-      tags:
-      - InnerMouth
-      - Mouth
-      - Head
-      Races: []
-      altMaterial: {fileID: 0}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 78bcc1abec57f9c409e43c37c84b131e, type: 2}
-      overlayScale: 1
-      tags:
-      - Torso
-      Races: []
-      altMaterial: {fileID: 11400000, guid: 8e29dbac5d2e82f44a759a7e2cc568ab, type: 2}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: e7c8290369e5f724e8e185a77240e37e, type: 2}
-      overlayScale: 1
-      tags:
-      - Feet
-      Races: []
-      altMaterial: {fileID: 11400000, guid: 8e29dbac5d2e82f44a759a7e2cc568ab, type: 2}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 881f10d72572db34cb1150ac3df21a97, type: 2}
-      overlayScale: 1
-      tags:
-      - Hands
-      Races: []
-      altMaterial: {fileID: 11400000, guid: 8e29dbac5d2e82f44a759a7e2cc568ab, type: 2}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 2041a0dad0ad3894ea9590072acacf65, type: 2}
-      overlayScale: 1
-      tags:
-      - Legs
-      Races: []
-      altMaterial: {fileID: 11400000, guid: 8e29dbac5d2e82f44a759a7e2cc568ab, type: 2}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 344a9e3f0f0a6384da7335c405e65999, type: 2}
-      overlayScale: 1
-      tags: []
-      Races: []
-      altMaterial: {fileID: 0}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 04442629189f10a48bc3238f44aa9856, type: 2}
-      overlayScale: 1
-      tags: []
-      Races: []
-      altMaterial: {fileID: 0}
-      Suppressed: 0
-      dontSerialize: 1
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: edcf92bdef3d2e04c980749f7d702647, type: 2}
-      overlayScale: 1
-      tags: []
-      Races: []
-      altMaterial: {fileID: 0}
-      Suppressed: 0
-      dontSerialize: 1
-      rendererAsset: {fileID: 0}
-    - asset: {fileID: 11400000, guid: 82e2d1671a9ac524d805de01b9408543, type: 2}
-      overlayScale: 1
-      tags:
-      - Ears
-      - Head
-      Races: []
-      altMaterial: {fileID: 0}
-      Suppressed: 0
-      dontSerialize: 0
-      rendererAsset: {fileID: 0}
-    sharedColors:
-    - name: Skin
-      channelMask:
-      - {r: 0.8962264, g: 0.85671455, b: 0.7905393, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      channelAdditiveMask:
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0.0627451, g: 0, b: 0, a: 0.24313726}
-      PropertyBlock:
-        alwaysUpdate: 0
-        serializedProperties: []
-      foldout: 0
-    - name: Hair
-      channelMask:
-      - {r: 0.3529412, g: 0.21568629, b: 0.14117648, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      channelAdditiveMask:
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      PropertyBlock:
-        alwaysUpdate: 0
-        serializedProperties: []
-      foldout: 0
-    - name: Eyes
-      channelMask:
-      - {r: 0.28627452, g: 0.40784317, b: 1, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      channelAdditiveMask:
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      PropertyBlock:
-        alwaysUpdate: 0
-        serializedProperties: []
-      foldout: 0
-    - name: Pants
-      channelMask:
-      - {r: 0.1882353, g: 0.23137255, b: 0.42352942, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      - {r: 1, g: 1, b: 1, a: 1}
-      channelAdditiveMask:
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      - {r: 0, g: 0, b: 0, a: 0}
-      PropertyBlock:
-        alwaysUpdate: 0
-        serializedProperties: []
-      foldout: 0
-  animator: {fileID: 36527957033456205}
-  KeepAvatar: 0
-  characterHeight: 2
-  characterRadius: 0.25
-  characterMass: 50
 --- !u!1 &6874045678625458226
 GameObject:
   m_ObjectHideFlags: 0
