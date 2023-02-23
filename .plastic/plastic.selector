@@ -1,4 +1,0 @@
-repository "Meta Quantum@Meta_Quantum@cloud"
-  path "/"
-    smartbranch "/main"       
-     
