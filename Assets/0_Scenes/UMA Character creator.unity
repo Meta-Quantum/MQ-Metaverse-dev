@@ -4412,7 +4412,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722064555}
-  m_LocalRotation: {x: -0.02114641, y: 0.066835724, z: 0.002877206, w: 0.9975358}
+  m_LocalRotation: {x: -0.02114647, y: 0.066835724, z: 0.0028772138, w: 0.9975358}
   m_LocalPosition: {x: -0.19709714, y: 0.000000014880397, z: -0.000000008546294}
   m_LocalScale: {x: 1.0000008, y: 1.0000006, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -12042,7 +12042,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1835331873}
   m_HandleRect: {fileID: 1835331872}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -12868,7 +12868,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1645511934}
   m_HandleRect: {fileID: 1645511933}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

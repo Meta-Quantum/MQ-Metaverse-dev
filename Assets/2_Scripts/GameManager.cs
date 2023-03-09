@@ -64,8 +64,8 @@ namespace Com.MyCompany.MyGame
 					// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
 					var localPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f,5f,0f), Quaternion.identity, 0);
 					
-					//we set the UMA character from the player prefs
-					localPlayer.GetComponent<UMADnaLoader>().LoadDnaToCharacter();
+					//we set the UMA character from the player prefs // deactivated for now, using onstart with the character instead
+					//localPlayer.GetComponent<UMADnaLoader>().LoadDnaToCharacter();
 				}else{
 
 					Debug.LogFormat("Ignoring scene load for {0}", SceneManagerHelper.ActiveSceneName);
