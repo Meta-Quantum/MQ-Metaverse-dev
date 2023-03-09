@@ -81,6 +81,7 @@ namespace GameCreator.Runtime.Characters.IK
             foreach (TRig rig in this.m_Rigs)
             {
                 if (!this.Character.Animim.Animator.isHuman && rig.RequiresHuman) continue;
+                //Debug.LogWarning(rig);
                 rebuildGraph = rig.OnUpdate(this.Character) || rebuildGraph;   
             }
             
