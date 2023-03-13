@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 6467526973629713827}
   - component: {fileID: -4343163427640525621}
   - component: {fileID: -8500056574690269525}
+  - component: {fileID: 4241511609629113719}
   m_Layer: 0
   m_Name: Photon UMA Player
   m_TagString: Untagged
@@ -500,6 +501,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bc979c1e756e44f867ee297a32b9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thirdPersonCameraPrefab: {fileID: 7965061930176493005, guid: 1dd888abe7d7a72459b33826016b086b, type: 3}
+--- !u!114 &4241511609629113719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639969652156454928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36de868ea7a7b854bbcca92e96cd7aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  mouseSingleClick: 0
+  paintColor: {r: 0, g: 0, b: 0, a: 0}
+  radius: 1
+  strength: 1
+  hardness: 1
+  isActive: 1
 --- !u!1 &779667011620883505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,7 +2513,6 @@ MonoBehaviour:
   m_Instructions:
     m_Instructions:
     - rid: 5847536597373812771
-    - rid: 5847536597373812764
   m_TriggerEvent:
     rid: 5847536597373812760
   references:
@@ -2500,38 +2520,6 @@ MonoBehaviour:
     RefIds:
     - rid: 5847536597373812760
       type: {class: EventOnStart, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812764
-      type: {class: InstructionGameObjectInstantiate, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
-      data:
-        m_IsExpanded: 1
-        m_Breakpoint: 0
-        m_IsEnabled: 1
-        m_GameObject:
-          m_Property:
-            rid: 5847536597373812765
-          usePooling: 0
-          size: 5
-          hasDuration: 0
-          duration: 10
-        m_Location:
-          m_Property:
-            rid: 5847536597373812770
-        m_Parent:
-          m_Property:
-            rid: 5847536597373812767
-        m_Save:
-          m_Property:
-            rid: 5847536597373812768
-    - rid: 5847536597373812765
-      type: {class: GetGameObjectInstance, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-      data:
-        m_GameObject: {fileID: 7965061930176493005, guid: 1dd888abe7d7a72459b33826016b086b, type: 3}
-    - rid: 5847536597373812767
-      type: {class: GetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812768
-      type: {class: SetGameObjectNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
-    - rid: 5847536597373812770
-      type: {class: GetLocationNone, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
     - rid: 5847536597373812771
       type: {class: InstructionCharacterChangePlayer, ns: GameCreator.Runtime.VisualScripting, asm: GameCreator.Runtime.Core}
       data:

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Realtime;
+using UnityEngine.Serialization;
 
 namespace Com.MyCompany.MyGame
 {
@@ -21,6 +22,8 @@ namespace Com.MyCompany.MyGame
 		#region Public Fields
 
 		static public GameManager Instance;
+
+		public PlayerController localPlayerController;
 
 		#endregion
 
