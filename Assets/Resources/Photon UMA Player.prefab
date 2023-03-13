@@ -517,11 +517,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   mouseSingleClick: 0
-  paintColor: {r: 0, g: 0, b: 0, a: 0}
+  paintColor: {r: 1, g: 0.67876756, b: 0, a: 1}
   radius: 1
-  strength: 1
-  hardness: 1
-  isActive: 1
+  strength: 0.5
+  hardness: 0.1
 --- !u!1 &779667011620883505
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class PaintManager : MonoBehaviour , Interactable {
     public Shader extendIslands;
     [SerializeField]
     private Camera _camera;
+    [SerializeField]
+    private MousePainter _mousePainter;
     
     private bool isInTrigger;
 
@@ -40,6 +42,7 @@ public class PaintManager : MonoBehaviour , Interactable {
         extendMaterial = new Material(extendIslands);
         command = new CommandBuffer();
         command.name = "CommmandBuffer - " + gameObject.name;
+        _mousePainter.enabled = false;
     }
 
     public void initTextures(Paintable paintable){
@@ -68,6 +71,8 @@ public class PaintManager : MonoBehaviour , Interactable {
         RenderTexture extend = paintable.getExtend();
         RenderTexture support = paintable.getSupport();
         Renderer rend = paintable.getRenderer();
+        
+        Debug.Log("PaintManager - getters");
 
         paintMaterial.SetFloat(prepareUVID, 0);
         paintMaterial.SetVector(positionID, pos);
@@ -78,6 +83,8 @@ public class PaintManager : MonoBehaviour , Interactable {
         paintMaterial.SetColor(colorID, color ?? Color.red);
         extendMaterial.SetFloat(uvOffsetID, paintable.extendsIslandOffset);
         extendMaterial.SetTexture(uvIslandsID, uvIslands);
+        
+        Debug.Log("PaintManager - setters");
 
         command.SetRenderTarget(mask);
         command.DrawRenderer(rend, paintMaterial, 0);
@@ -129,12 +136,17 @@ public class PaintManager : MonoBehaviour , Interactable {
         GameManager.Instance.EnterPainting();
         UIManager.Instance.EnterPainting();
         _camera.enabled = true;
+        _mousePainter.enabled = true;
+        //unlock mouse
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
     public void ExitPainting()
     {
         GameManager.Instance.ExitPainting();
         UIManager.Instance.ExitPainting();
-        _camera.enabled = true;
+        _camera.enabled = false;
+        _mousePainter.enabled = false;
     }
 }

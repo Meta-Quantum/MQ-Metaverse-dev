@@ -317,7 +317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+  - {fileID: 2100000, guid: 5422a9efcf0bc0d4eb9dc5d437b67f02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -554,9 +554,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 131822154, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
+      propertyPath: radius
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5603545314627245629, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
       propertyPath: m_Name
       value: PaintManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603545314627245629, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5603545314627245631, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
       propertyPath: m_RootOrder
@@ -564,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5603545314627245631, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.72
+      value: -29.83
       objectReference: {fileID: 0}
     - target: {fileID: 5603545314627245631, guid: c27e37d6b89754d4290710c77ace7fa2, type: 3}
       propertyPath: m_LocalPosition.y

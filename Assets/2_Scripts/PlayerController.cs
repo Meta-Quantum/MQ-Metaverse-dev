@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private GameObject thirdPersonCameraPrefab;
     [SerializeField]
     private GameObject _mannequin;
-    private MousePainter _mousePainter;
     private Camera _camera;
     private Character _character;
     
@@ -19,8 +18,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.localPlayerController = this;
-        //Cache Components
-        _mousePainter = GetComponent<MousePainter>();
         _character = GetComponent<Character>();
         
         //Set tag to Player
@@ -30,9 +27,6 @@ public class PlayerController : MonoBehaviour
         var transform1 = transform;
         var instantiatedCamera = Instantiate(thirdPersonCameraPrefab, transform1.position, transform1.rotation);
         _camera = instantiatedCamera.GetComponent<ThirdPersonCamera>().GetCamera();
-        
-        _mousePainter.cam = _camera;
-        _mousePainter.isActive = false;
     }
     
     public void GetInArcade(bool inArcade)
@@ -62,36 +56,32 @@ public class PlayerController : MonoBehaviour
     private void ExitArcade()
     {
         _inArcade = false;
-        _mousePainter.isActive = false;
         _character.enabled = true;
-        _camera.enabled = true;
+        _camera.gameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
 
     private void EnterArcade()
     {
         _inArcade = true;
-        _mousePainter.isActive = false;
         _character.enabled = false;
-        _camera.enabled = false;
+        _camera.gameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
     
     private void ExitPainting()
     {
         _inPainting = false;
-        _mousePainter.isActive = false;
         _character.enabled = true;
-        _camera.enabled = true;
+        _camera.gameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
 
     private void EnterPainting()
     {
         _inPainting = true;
-        _mousePainter.isActive = true;
         _character.enabled = false;
-        _camera.enabled = false;
+        _camera.gameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
 }
