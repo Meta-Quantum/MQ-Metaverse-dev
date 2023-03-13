@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ArcadeManager : MonoBehaviour, Interactable
 {
+    static public ArcadeManager Instance;
+    
     [SerializeField]
     private EmulatorManager _emulatorManager;
     
     private bool isInTrigger;
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     //On trigger enter with the player
     private void OnTriggerEnter(Collider other)
@@ -31,18 +38,27 @@ public class ArcadeManager : MonoBehaviour, Interactable
         //if its in the trigger and the player presses the interact button
         if (isInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Interacting");
+            Debug.Log("ArcadeManager - Interacting");
             Interact();
         }
     }
 
     public void Interact()
     {
-        //switch camera view to arcade view
-        GameManager.Instance.localPlayerController.GetInArcade(true);
+        EnterArcade();
+    }
+    
+    public void EnterArcade()
+    {
+        GameManager.Instance.EnterArcade();
+        UIManager.Instance.EnterArcade();
         _emulatorManager.StartArcade();
-        //switch player controls to arcade controls
-        
-        
+    }
+    
+    public void ExitArcade()
+    {
+        GameManager.Instance.ExitArcade();
+        UIManager.Instance.ExitArcade();
+        _emulatorManager.StopArcade();
     }
 }

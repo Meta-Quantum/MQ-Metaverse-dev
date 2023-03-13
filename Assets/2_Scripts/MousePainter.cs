@@ -23,21 +23,18 @@ public class MousePainter : MonoBehaviour{
 				Vector3 position = Input.mousePosition;
 				Ray ray = cam.ScreenPointToRay(position);
 				RaycastHit hit;
-
+				
 				if (Physics.Raycast(ray, out hit, 100.0f)){
-					Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.red);
-					Debug.Log("Hit " + hit.collider.name);
-					transform.position = hit.point;
+					//Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.red);
+					//Debug.Log("Hit " + hit.collider.name);
+					//transform.position = hit.point;
 					Paintable p = hit.collider.GetComponent<Paintable>();
 					if(p != null){
 						Debug.Log("Painting " + p.name);
-						PaintManager.instance.paint(p, hit.point, radius, hardness, strength, paintColor);
+						PaintManager.Instance.paint(p, hit.point, radius, hardness, strength, paintColor);
 					}
 				}
 			}
 		}
 	}
-	
-	
-
 }

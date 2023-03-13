@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField]
     private GameObject thirdPersonCameraPrefab;
+    [SerializeField]
+    private GameObject _mannequin;
     private MousePainter _mousePainter;
     private Camera _camera;
     private Character _character;
     
     private bool _inArcade = false;
+    private bool _inPainting = false;
 
     private void Start()
     {
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
         _camera = instantiatedCamera.GetComponent<ThirdPersonCamera>().GetCamera();
         
         _mousePainter.cam = _camera;
-        _mousePainter.isActive = true;
+        _mousePainter.isActive = false;
     }
     
     public void GetInArcade(bool inArcade)
@@ -43,6 +46,18 @@ public class PlayerController : MonoBehaviour
             ExitArcade();
         }
     }
+    
+    public void GetInPainting(bool inPainting)
+    {
+        if (inPainting)
+        {
+            EnterPainting();
+        }
+        else
+        {
+            ExitPainting();
+        }
+    }
 
     private void ExitArcade()
     {
@@ -50,6 +65,7 @@ public class PlayerController : MonoBehaviour
         _mousePainter.isActive = false;
         _character.enabled = true;
         _camera.enabled = true;
+        _mannequin.SetActive(true);
     }
 
     private void EnterArcade()
@@ -58,5 +74,24 @@ public class PlayerController : MonoBehaviour
         _mousePainter.isActive = false;
         _character.enabled = false;
         _camera.enabled = false;
+        _mannequin.SetActive(false);
+    } 
+    
+    private void ExitPainting()
+    {
+        _inPainting = false;
+        _mousePainter.isActive = false;
+        _character.enabled = true;
+        _camera.enabled = true;
+        _mannequin.SetActive(true);
+    }
+
+    private void EnterPainting()
+    {
+        _inPainting = true;
+        _mousePainter.isActive = true;
+        _character.enabled = false;
+        _camera.enabled = false;
+        _mannequin.SetActive(false);
     } 
 }

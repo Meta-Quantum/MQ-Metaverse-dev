@@ -1,10 +1,17 @@
+using Com.MyCompany.MyGame;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class PaintManager : Singleton<PaintManager>{
+public class PaintManager : MonoBehaviour , Interactable {
+    
+    static public PaintManager Instance;
 
     public Shader texturePaint;
     public Shader extendIslands;
+    [SerializeField]
+    private Camera _camera;
+    
+    private bool isInTrigger;
 
     int prepareUVID = Shader.PropertyToID("_PrepareUV");
     int positionID = Shader.PropertyToID("_PainterPosition");
@@ -21,9 +28,13 @@ public class PaintManager : Singleton<PaintManager>{
     Material extendMaterial;
 
     CommandBuffer command;
+    
+    private void Start()
+    {
+        Instance = this;
+    }
 
-    public override void Awake(){
-        base.Awake();
+    public void Awake(){
         
         paintMaterial = new Material(texturePaint);
         extendMaterial = new Material(extendIslands);
@@ -80,5 +91,50 @@ public class PaintManager : Singleton<PaintManager>{
         Graphics.ExecuteCommandBuffer(command);
         command.Clear();
     }
+    
+    private void Update()
+    {
+        //if its in the trigger and the player presses the interact button
+        if (isInTrigger && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("PaintManager - Interacting");
+            Interact();
+        }
+    }
+    
+    //On trigger enter with the player
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isInTrigger = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isInTrigger = false;
+        }
+    }
+
+    public void Interact()
+    {
+        EnterPainting();
+    }
+    
+    public void EnterPainting()
+    {
+        GameManager.Instance.EnterPainting();
+        UIManager.Instance.EnterPainting();
+        _camera.enabled = true;
+    }
+    
+    public void ExitPainting()
+    {
+        GameManager.Instance.ExitPainting();
+        UIManager.Instance.ExitPainting();
+        _camera.enabled = true;
+    }
 }

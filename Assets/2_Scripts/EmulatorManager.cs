@@ -10,6 +10,10 @@ public class EmulatorManager : MonoBehaviour
 	public string Filename;
 	public Renderer ScreenRenderer;
 	public Image ScreenImage;
+	[SerializeField]
+	private Camera _camera;
+	
+	private bool _isRunning;
 
 	public EmulatorBase Emulator
 	{
@@ -44,30 +48,44 @@ public class EmulatorManager : MonoBehaviour
 
 		gameObject.GetComponent<AudioSource>().enabled = false;
 		ScreenImage.gameObject.SetActive(false);
+		_camera.enabled = false;
 	}
 	
 	public void StartArcade()
 	{
 		ScreenImage.gameObject.SetActive(true);
 		StartCoroutine(LoadRom(Filename));
+		_isRunning = true;
+		_camera.enabled = true;
+	}
+	
+	public void StopArcade()
+	{
+		ScreenImage.gameObject.SetActive(true);
+		StopAllCoroutines();
+		_isRunning = false;
+		_camera.enabled = false;
 	}
 
 	void Update()
 	{
-		// Input
-		foreach (KeyValuePair<KeyCode, EmulatorBase.Button> entry in _keyMapping)
+		if (_isRunning)
 		{
-			if (Input.GetKeyDown(entry.Key))
-				Emulator.SetInput(entry.Value, true);
-			else if (Input.GetKeyUp(entry.Key))
-				Emulator.SetInput(entry.Value, false);
-		}
+			// Input
+			foreach (KeyValuePair<KeyCode, EmulatorBase.Button> entry in _keyMapping)
+			{
+				if (Input.GetKeyDown(entry.Key))
+					Emulator.SetInput(entry.Value, true);
+				else if (Input.GetKeyUp(entry.Key))
+					Emulator.SetInput(entry.Value, false);
+			}
 
-		if (Input.GetKeyDown(KeyCode.T))
-		{
-			byte[] screenshot = ((DefaultVideoOutput) Emulator.Video).Texture.EncodeToPNG();
-			File.WriteAllBytes("./screenshot.png", screenshot);
-			Debug.Log("Screenshot saved.");
+			if (Input.GetKeyDown(KeyCode.T))
+			{
+				byte[] screenshot = ((DefaultVideoOutput) Emulator.Video).Texture.EncodeToPNG();
+				File.WriteAllBytes("./screenshot.png", screenshot);
+				Debug.Log("Screenshot saved.");
+			}
 		}
 	}
 
