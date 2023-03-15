@@ -12,6 +12,7 @@ public class EmulatorManager : MonoBehaviour
 	public Image ScreenImage;
 	[SerializeField]
 	private Camera _camera;
+	private GameObject _cameraGameObject;
 	
 	private bool _isRunning;
 
@@ -48,7 +49,8 @@ public class EmulatorManager : MonoBehaviour
 
 		gameObject.GetComponent<AudioSource>().enabled = false;
 		ScreenImage.gameObject.SetActive(false);
-		_camera.enabled = false;
+		_cameraGameObject = _camera.gameObject;
+		_cameraGameObject.SetActive(false);
 	}
 	
 	public void StartArcade()
@@ -56,7 +58,7 @@ public class EmulatorManager : MonoBehaviour
 		ScreenImage.gameObject.SetActive(true);
 		StartCoroutine(LoadRom(Filename));
 		_isRunning = true;
-		_camera.enabled = true;
+		_cameraGameObject.SetActive(true);
 	}
 	
 	public void StopArcade()
@@ -64,7 +66,7 @@ public class EmulatorManager : MonoBehaviour
 		ScreenImage.gameObject.SetActive(true);
 		StopAllCoroutines();
 		_isRunning = false;
-		_camera.enabled = false;
+		_cameraGameObject.SetActive(false);
 	}
 
 	void Update()

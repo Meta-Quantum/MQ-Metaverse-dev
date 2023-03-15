@@ -10,6 +10,7 @@ public class PaintManager : MonoBehaviour , Interactable {
     public Shader extendIslands;
     [SerializeField]
     private Camera _camera;
+    private GameObject _cameraGameObject;
     [SerializeField]
     private MousePainter _mousePainter;
     
@@ -43,6 +44,8 @@ public class PaintManager : MonoBehaviour , Interactable {
         command = new CommandBuffer();
         command.name = "CommmandBuffer - " + gameObject.name;
         _mousePainter.enabled = false;
+        _cameraGameObject = _camera.gameObject;
+        _cameraGameObject.SetActive(false);
     }
 
     public void initTextures(Paintable paintable){
@@ -135,7 +138,7 @@ public class PaintManager : MonoBehaviour , Interactable {
     {
         GameManager.Instance.EnterPainting();
         UIManager.Instance.EnterPainting();
-        _camera.enabled = true;
+        _cameraGameObject.SetActive(true);
         _mousePainter.enabled = true;
         //unlock mouse
         Cursor.lockState = CursorLockMode.None;
@@ -146,7 +149,7 @@ public class PaintManager : MonoBehaviour , Interactable {
     {
         GameManager.Instance.ExitPainting();
         UIManager.Instance.ExitPainting();
-        _camera.enabled = false;
+        _cameraGameObject.SetActive(false);
         _mousePainter.enabled = false;
     }
 }

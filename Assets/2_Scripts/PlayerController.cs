@@ -9,11 +9,11 @@ public class PlayerController : MonoBehaviour
     private GameObject thirdPersonCameraPrefab;
     [SerializeField]
     private GameObject _mannequin;
-    private Camera _camera;
+    private GameObject _cameraGameObject;
     private Character _character;
     
-    private bool _inArcade = false;
-    private bool _inPainting = false;
+    private bool _inArcade;
+    private bool _inPainting;
 
     private void Start()
     {
@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour
         
         //Instantiate the third person camera
         var transform1 = transform;
-        var instantiatedCamera = Instantiate(thirdPersonCameraPrefab, transform1.position, transform1.rotation);
-        _camera = instantiatedCamera.GetComponent<ThirdPersonCamera>().GetCamera();
+        _cameraGameObject = Instantiate(thirdPersonCameraPrefab, transform1.position, transform1.rotation);
     }
     
     public void GetInArcade(bool inArcade)
@@ -57,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         _inArcade = false;
         _character.enabled = true;
-        _camera.gameObject.SetActive(true);
+        _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
 
@@ -65,7 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         _inArcade = true;
         _character.enabled = false;
-        _camera.gameObject.SetActive(false);
+        _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
     
@@ -73,7 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         _inPainting = false;
         _character.enabled = true;
-        _camera.gameObject.SetActive(true);
+        _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
 
@@ -81,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         _inPainting = true;
         _character.enabled = false;
-        _camera.gameObject.SetActive(false);
+        _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
 }

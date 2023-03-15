@@ -421,6 +421,7 @@ GameObject:
   - component: {fileID: 1596782357}
   - component: {fileID: 1596782356}
   - component: {fileID: 131822154}
+  - component: {fileID: 879946769}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -537,6 +538,14 @@ MonoBehaviour:
   radius: 0.3
   strength: 0.5
   hardness: 0.1
+--- !u!81 &879946769
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596782354}
+  m_Enabled: 1
 --- !u!1 &1663858302
 GameObject:
   m_ObjectHideFlags: 0

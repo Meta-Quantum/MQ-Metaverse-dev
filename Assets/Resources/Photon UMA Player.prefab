@@ -236,7 +236,6 @@ GameObject:
   - component: {fileID: 6467526973629713827}
   - component: {fileID: -4343163427640525621}
   - component: {fileID: -8500056574690269525}
-  - component: {fileID: 4241511609629113719}
   m_Layer: 3
   m_Name: Photon UMA Player
   m_TagString: Untagged
@@ -503,24 +502,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCameraPrefab: {fileID: 7965061930176493005, guid: 1dd888abe7d7a72459b33826016b086b, type: 3}
   _mannequin: {fileID: 22486858584722982}
---- !u!114 &4241511609629113719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639969652156454928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36de868ea7a7b854bbcca92e96cd7aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  mouseSingleClick: 0
-  paintColor: {r: 1, g: 0.67876756, b: 0, a: 1}
-  radius: 1
-  strength: 0.5
-  hardness: 0.1
 --- !u!1 &779667011620883505
 GameObject:
   m_ObjectHideFlags: 0
