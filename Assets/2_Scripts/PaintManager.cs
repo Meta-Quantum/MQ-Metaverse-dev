@@ -31,14 +31,9 @@ public class PaintManager : MonoBehaviour , Interactable {
     Material extendMaterial;
 
     CommandBuffer command;
-    
-    private void Start()
-    {
-        Instance = this;
-    }
 
     public void Awake(){
-        
+        Instance = this;
         paintMaterial = new Material(texturePaint);
         extendMaterial = new Material(extendIslands);
         command = new CommandBuffer();
