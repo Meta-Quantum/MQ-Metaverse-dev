@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7965061930176492995}
   - component: {fileID: 7965061930176492994}
+  - component: {fileID: 2711113402946594117}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -272,3 +273,16 @@ MonoBehaviour:
       type: {class: GetDecimalDecimal, ns: GameCreator.Runtime.Common, asm: GameCreator.Runtime.Core}
       data:
         m_Value: 180
+--- !u!114 &2711113402946594117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965061930176493005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d27ec29c733f64193b0e8cb4bc70b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 7965061929098454320}

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Realtime;
+using UnityEngine.Serialization;
 
 namespace Com.MyCompany.MyGame
 {
@@ -21,6 +22,29 @@ namespace Com.MyCompany.MyGame
 		#region Public Fields
 
 		static public GameManager Instance;
+
+		public PlayerController localPlayerController;
+		public ArcadeManager arcadeManager;
+		
+		public void EnterArcade()
+		{
+			localPlayerController.GetInArcade(true);
+		}
+		
+		public void ExitArcade()
+		{
+			localPlayerController.GetInArcade(false);
+		}
+		
+		public void EnterPainting()
+		{
+			localPlayerController.GetInPainting(true);
+		}
+		
+		public void ExitPainting()
+		{
+			localPlayerController.GetInPainting(false);
+		}
 
 		#endregion
 

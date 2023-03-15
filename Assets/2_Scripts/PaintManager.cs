@@ -1,10 +1,20 @@
+using Com.MyCompany.MyGame;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class PaintManager : Singleton<PaintManager>{
+public class PaintManager : MonoBehaviour , Interactable {
+    
+    static public PaintManager Instance;
 
     public Shader texturePaint;
     public Shader extendIslands;
+    [SerializeField]
+    private Camera _camera;
+    private GameObject _cameraGameObject;
+    [SerializeField]
+    private MousePainter _mousePainter;
+    
+    private bool isInTrigger;
 
     int prepareUVID = Shader.PropertyToID("_PrepareUV");
     int positionID = Shader.PropertyToID("_PainterPosition");
@@ -22,13 +32,15 @@ public class PaintManager : Singleton<PaintManager>{
 
     CommandBuffer command;
 
-    public override void Awake(){
-        base.Awake();
-        
+    public void Awake(){
+        Instance = this;
         paintMaterial = new Material(texturePaint);
         extendMaterial = new Material(extendIslands);
         command = new CommandBuffer();
         command.name = "CommmandBuffer - " + gameObject.name;
+        _mousePainter.enabled = false;
+        _cameraGameObject = _camera.gameObject;
+        _cameraGameObject.SetActive(false);
     }
 
     public void initTextures(Paintable paintable){
@@ -57,6 +69,8 @@ public class PaintManager : Singleton<PaintManager>{
         RenderTexture extend = paintable.getExtend();
         RenderTexture support = paintable.getSupport();
         Renderer rend = paintable.getRenderer();
+        
+        Debug.Log("PaintManager - getters");
 
         paintMaterial.SetFloat(prepareUVID, 0);
         paintMaterial.SetVector(positionID, pos);
@@ -67,6 +81,8 @@ public class PaintManager : Singleton<PaintManager>{
         paintMaterial.SetColor(colorID, color ?? Color.red);
         extendMaterial.SetFloat(uvOffsetID, paintable.extendsIslandOffset);
         extendMaterial.SetTexture(uvIslandsID, uvIslands);
+        
+        Debug.Log("PaintManager - setters");
 
         command.SetRenderTarget(mask);
         command.DrawRenderer(rend, paintMaterial, 0);
@@ -80,5 +96,55 @@ public class PaintManager : Singleton<PaintManager>{
         Graphics.ExecuteCommandBuffer(command);
         command.Clear();
     }
+    
+    private void Update()
+    {
+        //if its in the trigger and the player presses the interact button
+        if (isInTrigger && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("PaintManager - Interacting");
+            Interact();
+        }
+    }
+    
+    //On trigger enter with the player
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isInTrigger = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isInTrigger = false;
+        }
+    }
+
+    public void Interact()
+    {
+        EnterPainting();
+    }
+    
+    public void EnterPainting()
+    {
+        GameManager.Instance.EnterPainting();
+        UIManager.Instance.EnterPainting();
+        _cameraGameObject.SetActive(true);
+        _mousePainter.enabled = true;
+        //unlock mouse
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    
+    public void ExitPainting()
+    {
+        GameManager.Instance.ExitPainting();
+        UIManager.Instance.ExitPainting();
+        _cameraGameObject.SetActive(false);
+        _mousePainter.enabled = false;
+    }
 }
