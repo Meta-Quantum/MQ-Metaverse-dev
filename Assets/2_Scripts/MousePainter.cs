@@ -30,7 +30,10 @@ public class MousePainter : MonoBehaviour
 				if (p != null)
 				{
 					Debug.Log("Painting " + p.name);
-					PaintManager.Instance.paint(p, hit.point, radius, hardness, strength, paintColor);
+					
+					//Removed Color parameter from PaintManager.Instance.paint(p, hit.point, radius, hardness, strength, paintColor);
+					PaintManager.Instance.paint(p, hit.point, radius, hardness, strength);
+					
 				}
 			}
 		}
