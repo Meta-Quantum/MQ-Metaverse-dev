@@ -7,7 +7,6 @@ using UnityGB;
 
 public class EmulatorManager : MonoBehaviour
 {
-	public string Filename;
 	public Renderer ScreenRenderer;
 	public Image ScreenImage;
 	[SerializeField]
@@ -52,11 +51,16 @@ public class EmulatorManager : MonoBehaviour
 		_cameraGameObject = _camera.gameObject;
 		_cameraGameObject.SetActive(false);
 	}
+
+	public void EnterArcade()
+	{
+		_cameraGameObject.SetActive(true);
+	}
 	
-	public void StartArcade()
+	public void StartArcade(string filename)
 	{
 		ScreenImage.gameObject.SetActive(true);
-		StartCoroutine(LoadRom(Filename));
+		StartCoroutine(LoadRom(filename));
 		_isRunning = true;
 		_cameraGameObject.SetActive(true);
 	}

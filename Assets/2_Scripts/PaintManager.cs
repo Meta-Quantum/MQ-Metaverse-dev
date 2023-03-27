@@ -6,6 +6,8 @@ public class PaintManager : MonoBehaviour , Interactable {
     
     static public PaintManager Instance;
 
+    private Color PaintColour = Color.red;
+
     public Shader texturePaint;
     public Shader extendIslands;
     [SerializeField]
@@ -43,6 +45,11 @@ public class PaintManager : MonoBehaviour , Interactable {
         _cameraGameObject.SetActive(false);
     }
 
+    public void SetCurrentUsedColour(Color newColour)
+    {
+        PaintColour = newColour;
+    }
+
     public void initTextures(Paintable paintable){
         RenderTexture mask = paintable.getMask();
         RenderTexture uvIslands = paintable.getUVIslands();
@@ -62,8 +69,8 @@ public class PaintManager : MonoBehaviour , Interactable {
         command.Clear();
     }
 
-
-    public void paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = .5f, float strength = .5f, Color? color = null){
+    //Removed the color parameter from the paint method
+    public void paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = .5f, float strength = .5f){
         RenderTexture mask = paintable.getMask();
         RenderTexture uvIslands = paintable.getUVIslands();
         RenderTexture extend = paintable.getExtend();
@@ -78,7 +85,7 @@ public class PaintManager : MonoBehaviour , Interactable {
         paintMaterial.SetFloat(strengthID, strength);
         paintMaterial.SetFloat(radiusID, radius);
         paintMaterial.SetTexture(textureID, support);
-        paintMaterial.SetColor(colorID, color ?? Color.red);
+        paintMaterial.SetColor(colorID, PaintColour);
         extendMaterial.SetFloat(uvOffsetID, paintable.extendsIslandOffset);
         extendMaterial.SetTexture(uvIslandsID, uvIslands);
         
