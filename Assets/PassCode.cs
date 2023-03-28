@@ -1,26 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
-public class BarCode : MonoBehaviour
+public class PassCode : MonoBehaviour
 {
 
-    [SerializeField] private BarCodeUI _barCodeUI;
+    [SerializeField] private PassCodeUI passCodeUI;
     
     private bool _isInTrigger;
 
     private void Awake()
     {
-        _barCodeUI.gameObject.SetActive(false);
-        _barCodeUI.OnButtonClickedEvent += OnButtonClicked;
+        passCodeUI.gameObject.SetActive(false);
+        passCodeUI.OnButtonClickedEvent += OnButtonClicked;
     }
 
     private void OnButtonClicked()
     {
-        _barCodeUI.gameObject.SetActive(false);
-        var passcode = _barCodeUI.GetPasscode();
+        passCodeUI.gameObject.SetActive(false);
+        var passcode = passCodeUI.GetPasscode();
         Debug.Log(passcode);
 
         if (passcode == "1234")
@@ -35,7 +33,7 @@ public class BarCode : MonoBehaviour
 
     private void Start()
     {
-        _barCodeUI.gameObject.SetActive(false);
+        passCodeUI.gameObject.SetActive(false);
     }
     
     private void Update()
@@ -43,7 +41,7 @@ public class BarCode : MonoBehaviour
         //if its in the trigger and the player presses the interact button
         if (_isInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            _barCodeUI.gameObject.SetActive(true);
+            passCodeUI.gameObject.SetActive(true);
         }
     }
 

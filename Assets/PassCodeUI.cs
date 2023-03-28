@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Button = UnityEngine.UI.Button;
 
-public class BarCodeUI : MonoBehaviour
+public class PassCodeUI : MonoBehaviour
 {
     public event Action OnButtonClickedEvent;
     
