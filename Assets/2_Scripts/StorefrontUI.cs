@@ -12,6 +12,8 @@ public class StorefrontUI : MonoBehaviour
 		foreach (var land in lands)
 		{
 			var landGO = Instantiate(_landPrefab, _landVerticalLayoutGroup.transform);
+			var landButton = landGO.GetComponent<LandButton>();
+			landButton.Initialize(land);
 		}
 	}
 }
