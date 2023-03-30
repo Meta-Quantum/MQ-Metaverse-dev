@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject _mannequin;
     private GameObject _cameraGameObject;
-    private Character _character;
+    private Character _monkeyCharacter;
     
     private bool _inArcade;
     private bool _inPainting;
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.localPlayerController = this;
-        _character = GetComponent<Character>();
+        _monkeyCharacter = GetComponent<Character>();
         
         //Set tag to Player
         gameObject.tag = "Player";
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     private void ExitArcade()
     {
         _inArcade = false;
-        _character.enabled = true;
+        _monkeyCharacter.enabled = true;
         _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private void EnterArcade()
     {
         _inArcade = true;
-        _character.enabled = false;
+        _monkeyCharacter.enabled = false;
         _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     private void ExitPainting()
     {
         _inPainting = false;
-        _character.enabled = true;
+        _monkeyCharacter.enabled = true;
         _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
     private void EnterPainting()
     {
         _inPainting = true;
-        _character.enabled = false;
+        _monkeyCharacter.enabled = false;
         _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 

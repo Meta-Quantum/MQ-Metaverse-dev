@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using Photon.Realtime;
-using UnityEngine.Serialization;
 
 namespace Com.MyCompany.MyGame
 {
