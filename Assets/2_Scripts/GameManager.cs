@@ -52,6 +52,16 @@ namespace Com.MyCompany.MyGame
 		{
 			localPlayerController.GetInBuildingMode(false);
 		}
+		
+		private void ExitMouseUIMode()
+		{
+			localPlayerController.GetInMouseUIMode(false);
+		}
+
+		private void EnterMouseUIMode()
+		{
+			localPlayerController.GetInMouseUIMode(false);
+		}
 
 		#endregion
 

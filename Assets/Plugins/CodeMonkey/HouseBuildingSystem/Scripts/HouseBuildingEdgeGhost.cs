@@ -18,7 +18,13 @@ public class HouseBuildingEdgeGhost : MonoBehaviour {
         RefreshVisual();
     }
 
-    private void LateUpdate() {
+    private void LateUpdate()
+    {
+        if (!HouseBuildingSystem.Instance.IsHouseBuildingSystemActive())
+        {
+            return;
+        }
+        
         FloorEdgePosition floorEdgePosition = HouseBuildingSystem.Instance.GetMouseFloorEdgePosition();
         if (floorEdgePosition != null) {
             transform.position = Vector3.Lerp(transform.position, floorEdgePosition.transform.position, Time.deltaTime * 15f);

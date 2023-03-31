@@ -1,3 +1,4 @@
+using Plugins.CustomScripts;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -8,14 +9,27 @@ public class UIManager : MonoBehaviour
     public GameObject arcadeCanvas;
     public GameObject paintingCanvas;
     public GameObject buildingCanvas;
+    
+    public CanvasHitDetector globalCanvasHitDetector;
+    public CanvasHitDetector arcadeCanvasHitDetector;
+    public CanvasHitDetector paintingCanvasHitDetector;
+    public CanvasHitDetector buildingCanvasHitDetector;
+    
 
     public void Awake()
     {
         Instance = this;
         globalCanvas.SetActive(true);
+        globalCanvasHitDetector = globalCanvas.GetComponent<CanvasHitDetector>();
+        
         arcadeCanvas.SetActive(false);
+        arcadeCanvasHitDetector = arcadeCanvas.GetComponent<CanvasHitDetector>();
+        
         paintingCanvas.SetActive(false);
+        paintingCanvasHitDetector = paintingCanvas.GetComponent<CanvasHitDetector>();
+        
         buildingCanvas.SetActive(false);
+        buildingCanvasHitDetector = buildingCanvas.GetComponent<CanvasHitDetector>();
     }
     
     public void EnterArcade()
@@ -64,5 +78,41 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(false);
+    }
+
+    public bool IsPointerOverUI()
+    {
+        var result = false;
+
+        if (globalCanvas.activeSelf)
+        {
+            if (globalCanvasHitDetector.IsPointerOverUI())
+            {
+                result = true;
+            }
+        }
+        if(arcadeCanvas.activeSelf)
+        {
+            if (arcadeCanvasHitDetector.IsPointerOverUI())
+            {
+                result = true;
+            }
+        }
+        if (paintingCanvas.activeSelf)
+        {
+            if (paintingCanvasHitDetector.IsPointerOverUI())
+            {
+                result = true;
+            }
+        }
+        if (buildingCanvas.activeSelf)
+        {
+            if (buildingCanvasHitDetector.IsPointerOverUI())
+            {
+                result = true;
+            }
+        }
+        
+        return result;
     }
 }
