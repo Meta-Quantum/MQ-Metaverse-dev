@@ -24,4 +24,9 @@ public class MyButton : MonoBehaviour
     {
         button.onClick.RemoveListener(() => action());
     } 
+    
+    public void RemoveAllListeners()
+    {
+        button.onClick.RemoveAllListeners();
+    }
 }

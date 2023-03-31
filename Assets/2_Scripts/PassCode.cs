@@ -1,3 +1,4 @@
+using Com.MyCompany.MyGame;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -11,13 +12,14 @@ public class PassCode : MonoBehaviour
 
     private void Awake()
     {
-        passCodeUI.gameObject.SetActive(false);
         passCodeUI.OnButtonClickedEvent += OnButtonClicked;
     }
 
     private void OnButtonClicked()
     {
-        passCodeUI.gameObject.SetActive(false);
+        UIManager.Instance.ExitBarCodeMode();
+        GameManager.Instance.ExitMouseUIMode();
+        
         var passcode = passCodeUI.GetPasscode();
         Debug.Log(passcode);
 
@@ -38,10 +40,10 @@ public class PassCode : MonoBehaviour
     
     private void Update()
     {
-        //if its in the trigger and the player presses the interact button
         if (_isInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            passCodeUI.gameObject.SetActive(true);
+            UIManager.Instance.EnterBarCodeMode();
+            GameManager.Instance.EnterMouseUIMode();
         }
     }
 

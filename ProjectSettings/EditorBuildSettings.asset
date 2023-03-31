@@ -12,13 +12,16 @@ EditorBuildSettings:
     path: Assets/0_Scenes/Launcher.unity
     guid: c4042068bb1009541aafebe3bd5e05da
   - enabled: 1
-    path: Assets/0_Scenes/Room for 4.unity
+    path: Assets/0_Scenes/Room for 4OLD.unity
     guid: f70411559a8b3354ea5b1ac3887aa346
   - enabled: 1
     path: Assets/0_Scenes/1234.unity
     guid: 02f5079fa63d0f74d90e668ca84d7e6e
   - enabled: 1
+    path: Assets/0_Scenes/Room for 4.unity
+    guid: f853f72223dc40d4ebc21b97cba20c55
+  - enabled: 1
     path: Assets/0_Scenes/Small Land.unity
-    guid: 345fa7caffaba124abca96304f3f30d4
+    guid: 2f6e1e2e3dcccac42afacea2a094b21e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 275b64e9c186a0a4f925614501d10a0c, type: 2}
