@@ -5249,10 +5249,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarCode
       objectReference: {fileID: 0}
-    - target: {fileID: 9047050102129813080, guid: 79b9758e27b16784b9a0b8b4c49f9641, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9047050102129813081, guid: 79b9758e27b16784b9a0b8b4c49f9641, type: 3}
       propertyPath: m_RootOrder
       value: 7

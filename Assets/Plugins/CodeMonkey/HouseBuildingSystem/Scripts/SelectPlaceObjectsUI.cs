@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
+using Plugins.CodeMonkey.HouseBuildingSystem.Scripts;
 
 public class SelectPlaceObjectsUI : MonoBehaviour {
 

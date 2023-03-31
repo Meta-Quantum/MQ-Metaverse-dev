@@ -10,15 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject _mannequin;
     private GameObject _cameraGameObject;
-    private Character _monkeyCharacter;
+    private Character _character;
     
     private bool _inArcade;
     private bool _inPainting;
+    private bool _inBuildingMode;
 
     private void Start()
     {
         GameManager.Instance.localPlayerController = this;
-        _monkeyCharacter = GetComponent<Character>();
+        _character = GetComponent<Character>();
         
         //Set tag to Player
         gameObject.tag = "Player";
@@ -51,11 +52,39 @@ public class PlayerController : MonoBehaviour
             ExitPainting();
         }
     }
+    
+    public void GetInBuildingMode(bool inBuildingMode)
+    {
+        if (inBuildingMode)
+        {
+            EnterBuildingMode();
+        }
+        else
+        {
+            ExitBuildingMode();
+        }
+    }
+
+    private void ExitBuildingMode()
+    {
+        _inBuildingMode = false;
+        _character.enabled = true;
+        _cameraGameObject.SetActive(true);
+        _mannequin.SetActive(true);
+    }
+
+    private void EnterBuildingMode()
+    {
+        _inBuildingMode = true;
+        _character.enabled = false;
+        _cameraGameObject.SetActive(false);
+        _mannequin.SetActive(false);
+    }
 
     private void ExitArcade()
     {
         _inArcade = false;
-        _monkeyCharacter.enabled = true;
+        _character.enabled = true;
         _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
@@ -63,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private void EnterArcade()
     {
         _inArcade = true;
-        _monkeyCharacter.enabled = false;
+        _character.enabled = false;
         _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
@@ -71,7 +100,7 @@ public class PlayerController : MonoBehaviour
     private void ExitPainting()
     {
         _inPainting = false;
-        _monkeyCharacter.enabled = true;
+        _character.enabled = true;
         _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
     }
@@ -79,7 +108,7 @@ public class PlayerController : MonoBehaviour
     private void EnterPainting()
     {
         _inPainting = true;
-        _monkeyCharacter.enabled = false;
+        _character.enabled = false;
         _cameraGameObject.SetActive(false);
         _mannequin.SetActive(false);
     } 
