@@ -53,12 +53,12 @@ namespace Com.MyCompany.MyGame
 			localPlayerController.GetInBuildingMode(false);
 		}
 		
-		private void ExitMouseUIMode()
+		public void ExitMouseUIMode()
 		{
 			localPlayerController.GetInMouseUIMode(false);
 		}
 
-		private void EnterMouseUIMode()
+		public void EnterMouseUIMode()
 		{
 			localPlayerController.GetInMouseUIMode(false);
 		}

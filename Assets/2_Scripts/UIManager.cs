@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour
     public GameObject arcadeCanvas;
     public GameObject paintingCanvas;
     public GameObject buildingCanvas;
+    public GameObject barCodeCanvas;
     
     public CanvasHitDetector globalCanvasHitDetector;
     public CanvasHitDetector arcadeCanvasHitDetector;
     public CanvasHitDetector paintingCanvasHitDetector;
     public CanvasHitDetector buildingCanvasHitDetector;
+    public CanvasHitDetector barCodeCanvasHitDetector;
     
 
     public void Awake()
@@ -30,6 +32,9 @@ public class UIManager : MonoBehaviour
         
         buildingCanvas.SetActive(false);
         buildingCanvasHitDetector = buildingCanvas.GetComponent<CanvasHitDetector>();
+        
+        barCodeCanvas.SetActive(false);
+        barCodeCanvasHitDetector = barCodeCanvas.GetComponent<CanvasHitDetector>();
     }
     
     public void EnterArcade()
@@ -38,6 +43,7 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(true);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
     }
     
     public void ExitArcade()
@@ -46,6 +52,7 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
     }
     
     public void EnterPainting()
@@ -54,6 +61,7 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(true);
         buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
     }
     
     public void ExitPainting()
@@ -62,6 +70,7 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
     }
     
     public void EnterBuildingMode()
@@ -70,6 +79,7 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(true);
+        barCodeCanvas.SetActive(false);
     }
     
     public void ExitBuildingMode()
@@ -78,6 +88,25 @@ public class UIManager : MonoBehaviour
         arcadeCanvas.SetActive(false);
         paintingCanvas.SetActive(false);
         buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
+    }
+    
+    public void EnterBarCodeMode()
+    {
+        globalCanvas.SetActive(true);
+        arcadeCanvas.SetActive(false);
+        paintingCanvas.SetActive(false);
+        buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(true);
+    }
+    
+    public void ExitBarCodeMode()
+    {
+        globalCanvas.SetActive(true);
+        arcadeCanvas.SetActive(false);
+        paintingCanvas.SetActive(false);
+        buildingCanvas.SetActive(false);
+        barCodeCanvas.SetActive(false);
     }
 
     public bool IsPointerOverUI()
@@ -91,23 +120,30 @@ public class UIManager : MonoBehaviour
                 result = true;
             }
         }
-        if(arcadeCanvas.activeSelf)
+        else if(arcadeCanvas.activeSelf)
         {
             if (arcadeCanvasHitDetector.IsPointerOverUI())
             {
                 result = true;
             }
         }
-        if (paintingCanvas.activeSelf)
+        else if (paintingCanvas.activeSelf)
         {
             if (paintingCanvasHitDetector.IsPointerOverUI())
             {
                 result = true;
             }
         }
-        if (buildingCanvas.activeSelf)
+        else if (buildingCanvas.activeSelf)
         {
             if (buildingCanvasHitDetector.IsPointerOverUI())
+            {
+                result = true;
+            }
+        }
+        else if (barCodeCanvas.activeSelf)
+        {
+            if (barCodeCanvasHitDetector.IsPointerOverUI())
             {
                 result = true;
             }
