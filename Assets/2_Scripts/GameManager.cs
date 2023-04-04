@@ -60,7 +60,7 @@ namespace Com.MyCompany.MyGame
 
 		public void EnterMouseUIMode()
 		{
-			localPlayerController.GetInMouseUIMode(false);
+			localPlayerController.GetInMouseUIMode(true);
 		}
 
 		#endregion

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Com.MyCompany.MyGame;
 using UnityEngine;
 
 public class Storefront : MonoBehaviour
@@ -18,7 +19,8 @@ public class Storefront : MonoBehaviour
 		//if its in the trigger and the player presses the interact button
 		if (_isInTrigger && Input.GetKeyDown(KeyCode.E))
 		{
-			_storefrontUI.gameObject.SetActive(true);
+			UIManager.Instance.EnterStoreFrontMode();
+			GameManager.Instance.EnterMouseUIMode();
 		}
 	}
 	

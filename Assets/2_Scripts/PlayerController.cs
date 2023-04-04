@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     private void ExitArcade()
     {
         _inArcade = false;
-        Cursor.visible = true;
+        Cursor.visible = false;
         _character.enabled = true;
         _cameraGameObject.SetActive(true);
         _mannequin.SetActive(true);
