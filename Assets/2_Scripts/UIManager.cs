@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
         storeFrontCanvas.SetActive(false);
     }
     
-    public void EnterBarCodeMode()
+    public void EnterPassCodeMode()
     {
         globalCanvas.SetActive(true);
         arcadeCanvas.SetActive(false);
@@ -112,7 +112,7 @@ public class UIManager : MonoBehaviour
         storeFrontCanvas.SetActive(false);
     }
     
-    public void ExitBarCodeMode()
+    public void ExitPassCodeMode()
     {
         globalCanvas.SetActive(true);
         arcadeCanvas.SetActive(false);

@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localPlayerController: {fileID: 0}
   arcadeManager: {fileID: 0}
-  playerPrefab: {fileID: 639969652156454928, guid: 65ad34f385175bb46815146a865dca08, type: 3}
+  localPlayerPrefab: {fileID: 639969652156454928, guid: 65ad34f385175bb46815146a865dca08, type: 3}
+  otherPlayerPrefab: {fileID: 639969652156454928, guid: 08fc2467b1968664ebd356d790cd7db9, type: 3}

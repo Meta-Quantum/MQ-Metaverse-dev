@@ -1,3 +1,5 @@
+using ExitGames.Client.Photon;
+using GameCreator.Runtime.Characters;
 using Photon.Pun;
 using Photon.Pun.Demo.PunBasics;
 using UnityEngine;
@@ -14,7 +16,7 @@ namespace Com.MyCompany.MyGame
 	/// Deals with quiting the room and the game
 	/// Deals with level loading (outside the in room synchronization)
 	/// </summary>
-	public class GameManager : MonoBehaviourPunCallbacks
+	public class GameManager : MonoBehaviourPunCallbacks, IOnEventCallback
 	{
 		#region Public Fields
 
@@ -69,8 +71,11 @@ namespace Com.MyCompany.MyGame
 
 		private GameObject instance;
 
-		[Tooltip("The prefab to use for representing the player")] [SerializeField]
-		private GameObject playerPrefab;
+		[Tooltip("The prefab to use for representing the local player")] [SerializeField]
+		private GameObject localPlayerPrefab;
+		
+		[Tooltip("The prefab to use for representing the other players")] [SerializeField]
+		private GameObject otherPlayerPrefab;
 
 		#endregion
 
@@ -91,7 +96,7 @@ namespace Com.MyCompany.MyGame
 				return;
 			}
 
-			if (playerPrefab == null)
+			if (localPlayerPrefab == null)
 			{
 				// #Tip Never assume public properties of Components are filled up properly, always check and inform the developer of it.
 
@@ -104,13 +109,8 @@ namespace Com.MyCompany.MyGame
 				if (PlayerManager.LocalPlayerInstance == null)
 				{
 					Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
-
-					// we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-					var localPlayer = PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f),
-						Quaternion.identity, 0);
-
-					//we set the UMA character from the player prefs // deactivated for now, using onstart with the character instead
-					//localPlayer.GetComponent<UMADnaLoader>().LoadDnaToCharacter();
+					
+					SpawnPlayer();
 				}
 				else
 				{
@@ -176,21 +176,50 @@ namespace Com.MyCompany.MyGame
 		}
 
 		#endregion
-
-		#region Private Methods
-
-		void LoadArena()
+		
+		private void SpawnPlayer()
 		{
-			if (!PhotonNetwork.IsMasterClient)
+			var localPlayer = Instantiate(localPlayerPrefab, new Vector3(0f, 5f, 0f),
+				Quaternion.identity);
+			localPlayerController = localPlayer.GetComponent<PlayerController>();
+			var character = localPlayer.GetComponent<Character>();
+			character.IsPlayer = true;
+			
+			var photonView = localPlayer.GetComponent<PhotonView>();
+
+			if (PhotonNetwork.AllocateViewID(photonView))
 			{
-				Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
+				var data = new object[]
+				{
+					localPlayer.transform.position, localPlayer.transform.rotation, photonView.ViewID
+				};
+
+				var raiseEventOptions = new RaiseEventOptions
+				{
+					Receivers = ReceiverGroup.Others,
+					CachingOption = EventCaching.AddToRoomCache
+				};
+				
+				PhotonNetwork.RaiseEvent(Events.CustomManualInstantiationEventCode, data, raiseEventOptions, SendOptions.SendReliable);
 			}
+			else
+			{
+				Debug.LogError("Failed to allocate a ViewId.");
 
-			Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
-
-			PhotonNetwork.LoadLevel("PunBasics-Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+				Destroy(localPlayer);
+			}
 		}
+		
+		public void OnEvent(EventData photonEvent)
+		{
+			if (photonEvent.Code == Events.CustomManualInstantiationEventCode)
+			{
+				var data = (object[]) photonEvent.CustomData;
 
-		#endregion
+				var player = Instantiate(otherPlayerPrefab, (Vector3) data[0], (Quaternion) data[1]);
+				var photonView = player.GetComponent<PhotonView>();
+				photonView.ViewID = (int) data[2];
+			}
+		}
 	}
 }

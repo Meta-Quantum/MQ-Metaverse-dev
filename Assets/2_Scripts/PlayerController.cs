@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.localPlayerController = this;
+        //GameManager.Instance.localPlayerController = this;
         _character = GetComponent<Character>();
         
         //Set tag to Player

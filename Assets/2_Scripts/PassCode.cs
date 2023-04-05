@@ -17,7 +17,7 @@ public class PassCode : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        UIManager.Instance.ExitBarCodeMode();
+        UIManager.Instance.ExitPassCodeMode();
         GameManager.Instance.ExitMouseUIMode();
         
         var passcode = passCodeUI.GetPasscode();
@@ -42,7 +42,7 @@ public class PassCode : MonoBehaviour
     {
         if (_isInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            UIManager.Instance.EnterBarCodeMode();
+            UIManager.Instance.EnterPassCodeMode();
             GameManager.Instance.EnterMouseUIMode();
         }
     }
